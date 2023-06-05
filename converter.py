@@ -23,10 +23,10 @@ def podaj_plik_json(plik_wej):
 
 
 # ~~~~~~~~~~~ Zapisanie danych do pliku JSON ~~~~~~~~~~~
-def zapisz_do_pliku_json(plik_wej, plik_wyj):
+def zapisz_do_pliku_json(a, plik_wyj):
     try:
         with open(plik_wyj, 'w') as plik:
-            json.dump(plik_wej, plik)
+            json.dump(a, plik)
         print("Udana konwersja do formatu JSON")
     except:
         print("Błąd")
@@ -42,3 +42,13 @@ def podaj_plik_yml(plik_wej):
         print("Taki plik nie istnieje, sprawdź nazwę")
     except FileNotFoundError:
         print("Taki plik nie istnieje")
+
+
+# ~~~~~~~~~~~ Zapisanie danych do pliku YML (yaml) ~~~~~~~~~~~
+def zapisz_do_pliku_yml(a, plik_wyj):
+    try:
+        with open(plik_wyj, 'w') as plik:
+            yaml.dump(a, plik)
+        print("Udana konwersja do formatu YML")
+    except:
+        print("Błąd")
