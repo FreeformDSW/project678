@@ -63,3 +63,14 @@ def wczytaj_z_pliku_xml(plik_wej):
             return a
     except FileNotFoundError:
         print("Taki plik nie istnieje")
+
+
+# ~~~~~~~~~~~ Zapisanie danych do pliku XML ~~~~~~~~~~~
+def zapisz_do_pliku_xml(a, plik_wyj):
+    try:
+        with open(a, 'w') as plik:
+            xml_str = xmltodict.unparse(plik_wyj, pretty=True)  # dodatkowy parametr by plik był czytylny
+            plik.write(xml_str)
+        print("Udana konwersja do formatu XML")
+    except:
+        print("Błąd")
