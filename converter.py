@@ -1,6 +1,7 @@
 import sys
 import json
 import yaml
+import xmltodict
 
 # ~~~~~~~~~~~ Parsowanie ~~~~~~~~~~~
 if len(sys.argv) != 3:
@@ -52,3 +53,13 @@ def zapisz_do_pliku_yml(a, plik_wyj):
         print("Udana konwersja do formatu YML")
     except:
         print("Błąd")
+
+
+# ~~~~~~~~~~~ Wczytanie pliku XML i weryfikacja składni ~~~~~~~~~~~
+def wczytaj_z_pliku_xml(plik_wej):
+    try:
+        with open(plik_wej, 'r') as plik:
+            a = xmltodict.parse(plik.read())
+            return a
+    except FileNotFoundError:
+        print("Taki plik nie istnieje")
