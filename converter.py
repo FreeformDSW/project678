@@ -1,5 +1,6 @@
 import sys
 import json
+import yaml
 
 # ~~~~~~~~~~~ Parsowanie ~~~~~~~~~~~
 if len(sys.argv) != 3:
@@ -29,3 +30,15 @@ def zapisz_do_pliku_json(plik_wej, plik_wyj):
         print("Udana konwersja do formatu JSON")
     except:
         print("Błąd")
+
+
+# ~~~~~~~~~~~ Wczytanie pliku yml i weryfikacja składni ~~~~~~~~~~~
+def podaj_plik_yml(plik_wej):
+    try:
+        with open(plik_wej, 'r') as plik:
+            a = yaml.safe_load(plik)
+            return a
+    except yaml.YAMLError:
+        print("Taki plik nie istnieje, sprawdź nazwę")
+    except FileNotFoundError:
+        print("Taki plik nie istnieje")
