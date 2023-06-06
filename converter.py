@@ -72,9 +72,11 @@ def zapisz_do_pliku_xml(a, plik_wyj):
 # ~~~~~~~~~~~ Prawidłowy skrypt ~~~~~~~~~~~
 def main():
     # ~~~~~~~~~~~ Parsowanie ~~~~~~~~~~~
-        if len(sys.argv) != 3:
+    if len(sys.argv) != 3:
         print("Dozwolone sa tylko dwa argumenty")
         return
+    else
+        pass
 
     plik_wej = sys.argv[1]
     plik_wyj = sys.argv[2]
