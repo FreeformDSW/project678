@@ -72,11 +72,12 @@ def zapisz_do_pliku_xml(a, plik_wyj):
 # ~~~~~~~~~~~ Prawidłowy skrypt ~~~~~~~~~~~
 def main():
     # ~~~~~~~~~~~ Parsowanie ~~~~~~~~~~~
-    if len(sys.argv) != 3:
+        if len(sys.argv) != 3:
         print("Dozwolone sa tylko dwa argumenty")
-    else:
-        plik_wej = sys.argv[1]
-        plik_wyj = sys.argv[2]
+        return
+
+    plik_wej = sys.argv[1]
+    plik_wyj = sys.argv[2]
 
     a = None
 
@@ -88,6 +89,7 @@ def main():
         a = podaj_plik_xml(plik_wej)
     else:
         print("Błędny format pliku.")
+        return
 
     if plik_wyj.endswith('.json'):
         zapisz_do_pliku_json(a, plik_wyj)
@@ -97,6 +99,7 @@ def main():
         zapisz_do_pliku_xml(a, plik_wyj)
     else:
         print("Błędny format pliku.")
+        return
 
 
 # ~~~~~~~~~~~ Start programu ~~~~~~~~~~~
