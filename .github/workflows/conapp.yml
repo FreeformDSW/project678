@@ -1,0 +1,37 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Aplikacja na podstawie skryptu converter.py
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: '0 8 * * 3' # odpala sie co srode o 8
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: windows-latest # usawienie domyslnego serwera na windows
+
+    steps:
+    - name: Sprawdzenie repozytoriumm
+      uses: actions/checkout@v3
+    
+    - name: Setup Pythona
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        
+    - name: Instalacja wymaganych bibliotek
+      run: bash installer.sh
+      
+    - name: Odpalenie skryptu
+      run: python converter.py
+      
+    - name: Przesyłanie utworzonego pliku
+      uses: actions/upload-artifact@v3
+      with:
+        name: Converter.exe
+        path: ${{ github.workspace }}/converter.exe
