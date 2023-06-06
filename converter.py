@@ -75,7 +75,7 @@ def main():
     if len(sys.argv) != 3:
         print("Dozwolone sa tylko dwa argumenty")
         return
-    else
+    else:
         pass
 
     plik_wej = sys.argv[1]
